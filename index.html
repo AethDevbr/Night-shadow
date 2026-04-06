@@ -1,0 +1,2646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloxShadow - Melhores Executores e Scripts Roblox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff0000;
+            --primary-dark: #8B0000;
+            --secondary: #ff3333;
+            --accent: #ff6600;
+            --dark: #0a0000;
+            --darker: #050000;
+            --card-bg: rgba(20, 0, 0, 0.95);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--darker);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-image: 
+                linear-gradient(rgba(255, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+            100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+        }
+
+        /* Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 0, 0, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            animation: float-up 8s infinite linear;
+        }
+
+        @keyframes float-up {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
+        }
+
+        /* Top Bar Animada */
+        .top-bar {
+            background: linear-gradient(90deg, #8B0000, #ff0000, #8B0000, #ff0000);
+            background-size: 300% 100%;
+            padding: 0.6rem;
+            overflow: hidden;
+            position: relative;
+            animation: gradient-slide 3s linear infinite;
+        }
+
+        @keyframes gradient-slide {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        .top-bar-content {
+            display: flex;
+            animation: scroll-text 15s linear infinite;
+            white-space: nowrap;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        @keyframes scroll-text {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .top-bar-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(10, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(255, 0, 0, 0.3);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .back-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 0, 0, 0.3);
+            transform: scale(1.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            transition: all 0.3s;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo:hover .logo-icon {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+        }
+
+        .verified-badge {
+            color: #00ff00;
+            font-size: 1rem;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-icon-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .nav-icon-btn:hover {
+            background: rgba(255, 0, 0, 0.3);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .nav-icon-btn .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff0000;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.4rem;
+            border-radius: 50%;
+            font-weight: 700;
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #ff0000, #8B0000);
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 0, 0, 0.6);
+            filter: brightness(1.2);
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+            min-height: calc(100vh - 140px);
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Page */
+        .hero {
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .hero-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 0, 0, 0.1);
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            animation: glow-pulse 2s infinite;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .hero-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 0, 0, 0.6); }
+        }
+
+        .hero-logo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+        }
+
+        .hero-logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff, #ff6666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto 3rem;
+        }
+
+        .hero-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1.2rem;
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px solid rgba(255, 0, 0, 0.5);
+            border-radius: 15px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-btn:hover::before {
+            left: 100%;
+        }
+
+        .hero-btn:hover {
+            background: rgba(255, 0, 0, 0.4);
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+        }
+
+        /* Maintenance Banner */
+        .maintenance-banner {
+            text-align: center;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .maintenance-img {
+            max-width: 100%;
+            height: auto;
+            animation: glitch 2s infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); filter: drop-shadow(2px 2px 0px #8B0000) drop-shadow(-2px -2px 0px #ff6666); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        /* Category Cards */
+        .category-section {
+            padding: 2rem 5%;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.8), rgba(50, 0, 0, 0.9));
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,0,0,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .category-card:hover::after {
+            opacity: 1;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            border-color: #ff0000;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 0.5rem;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .category-card h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            padding: 2rem 5% 1rem;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .section-title i {
+            color: #ff6600;
+            animation: flicker 1.5s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 1rem 5% 3rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff0000, transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff0000;
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(255, 0, 0, 0.3);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 1px solid rgba(255, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .product-badge.sold-out {
+            background: rgba(255, 0, 0, 0.9);
+            animation: pulse-red 1.5s infinite;
+        }
+
+        @keyframes pulse-red {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-header i {
+            color: #ff6600;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .price-container {
+            margin-bottom: 1rem;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: #ff0000;
+            color: #fff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+            animation: shake 2s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .current-price {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .price-icon {
+            color: #00ff00;
+            font-size: 1.2rem;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .payment-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .payment-info i {
+            color: #00ffff;
+        }
+
+        .details-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ff0000, #8B0000);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .details-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .details-btn:hover::after {
+            left: 100%;
+        }
+
+        .details-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 3rem 5%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .reviews-title-img {
+            display: block;
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 3rem;
+            animation: glitch 2s infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.8));
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff0000;
+            box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2);
+        }
+
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #333, #666);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 2px solid rgba(255, 0, 0, 0.5);
+        }
+
+        .review-stars {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .review-text {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .review-date {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        .review-product {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .review-product img {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 3rem 5%;
+        }
+
+        .features-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .feature-item:hover {
+            background: rgba(255, 0, 0, 0.2);
+            transform: translateX(10px);
+            border-color: #ff0000;
+        }
+
+        .feature-icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 0, 0, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #ff0000;
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover .feature-icon-box {
+            background: #ff0000;
+            color: #fff;
+            transform: rotate(360deg);
+        }
+
+        .feature-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-text p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Login Page */
+        .login-page {
+            padding: 3rem 5%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .login-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .login-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 0, 0, 0.5);
+            transform: scale(1.02);
+        }
+
+        .social-btn img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .divider {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ff0000, #8B0000);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+        }
+
+        /* Terms Page */
+        .terms-page {
+            padding: 3rem 5%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .terms-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        .terms-section {
+            margin-bottom: 2rem;
+        }
+
+        .terms-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ff0000;
+            animation: color-pulse 3s infinite;
+        }
+
+        @keyframes color-pulse {
+            0%, 100% { color: #fff; text-shadow: 0 0 10px rgba(255,0,0,0.5); }
+            50% { color: #ff0000; text-shadow: 0 0 20px rgba(255,0,0,0.8); }
+        }
+
+        .terms-section h2 i {
+            font-size: 1.1rem;
+        }
+
+        .terms-section p, .terms-section ul {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .terms-section ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .terms-section ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .terms-section ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        .terms-highlight {
+            color: #ff0000;
+            font-weight: 700;
+        }
+
+        .terms-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .terms-btn {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem;
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px solid rgba(255, 0, 0, 0.5);
+            border-radius: 12px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .terms-btn:hover {
+            background: rgba(255, 0, 0, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* Cookies Page */
+        .cookies-page {
+            padding: 3rem 5%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cookies-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cookies-content h2 {
+            color: #ff0000;
+            font-size: 1.2rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .cookies-content p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .cookies-content strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* Cart Page */
+        .cart-page {
+            padding: 3rem 5%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cart-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .cart-empty {
+            background: rgba(255, 0, 0, 0.05);
+            border: 2px solid rgba(255, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .cart-icon {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .cart-empty-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .discover-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #ff0000, #8B0000);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .discover-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+        }
+
+        .cart-summary {
+            background: rgba(255, 0, 0, 0.05);
+            border: 2px solid rgba(255, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .cart-summary h3 {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cart-summary p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            border-top: 2px solid rgba(255, 0, 0, 0.3);
+            padding: 3rem 5% 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .footer-logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .footer-logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .footer-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #ff0000;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .footer-section a:hover {
+            color: #ff0000;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background: #ff0000;
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 0, 0, 0.2);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .powered-by {
+            color: #ff0000;
+            font-weight: 700;
+        }
+
+        /* Floating Menu */
+        .floating-menu {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .floating-btn {
+            width: 50px;
+            height: 50px;
+            background: rgba(20, 20, 20, 0.95);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            font-size: 1.2rem;
+        }
+
+        .floating-btn:hover {
+            background: #ff0000;
+            border-color: #ff0000;
+            transform: scale(1.1);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a0000, #0a0000);
+            border: 2px solid #ff0000;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+            animation: modal-in 0.3s ease-out;
+        }
+
+        @keyframes modal-in {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #ff0000;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff0000, #8B0000);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
+            transform: translateX(400px);
+            transition: transform 0.3s;
+            z-index: 3000;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            animation: pulse 1.5s infinite;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
+        }
+
+        .loading-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 0, 0, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff0000, #ff6600);
+            animation: loading 2s ease-in-out infinite;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 100%; }
+            100% { width: 0%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .maintenance-img { max-width: 90%; }
+            .products-grid { grid-template-columns: 1fr; }
+            .terms-buttons { flex-direction: column; }
+            .top-bar-content { font-size: 0.8rem; }
+            .reviews-title-img { max-width: 95%; }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#ff0000, #8B0000);
+            border-radius: 5px;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff0000;
+            position: absolute;
+            animation: confetti-fall 3s linear forwards;
+            z-index: 9998;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">
+            <img src="https://i.imgur.com/IJHvayH.png" alt="BloxShadow">
+        </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="grid-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Top Bar Animada -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <span class="top-bar-item"><i class="fas fa-bolt"></i> Atendimento rápido e personalizado</span>
+            <span class="top-bar-item"><i class="fas fa-lock"></i> Compra segura e transparente</span>
+            <span class="top-bar-item"><i class="fas fa-check-circle"></i> Produtos 100% originais</span>
+            <span class="top-bar-item"><i class="fas fa-bolt"></i> Atendimento rápido e personalizado</span>
+            <span class="top-bar-item"><i class="fas fa-lock"></i> Compra segura e transparente</span>
+            <span class="top-bar-item"><i class="fas fa-check-circle"></i> Produtos 100% originais</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <button class="back-btn" onclick="goBack()" title="Voltar">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <a href="#" class="logo" onclick="goToDiscord()">
+                <div class="logo-icon">
+                    <img src="https://i.imgur.com/feVlNTn.png" alt="BloxShadow">
+                </div>
+                <span>BloxShadow</span>
+                <i class="fas fa-check-circle verified-badge"></i>
+            </a>
+        </div>
+        
+        <div class="nav-icons">
+            <button class="nav-icon-btn" onclick="toggleSearch()">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="nav-icon-btn" onclick="showNotifications()">
+                <i class="fas fa-bell"></i>
+                <span class="badge" id="notifBadge">6</span>
+            </button>
+            <a href="#" class="nav-icon-btn" onclick="navigateTo('cart')">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="badge" id="cartBadge" style="display: none;">0</span>
+            </a>
+            <button class="login-btn" onclick="navigateTo('login')">
+                Entrar
+            </button>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div id="searchBar" style="display: none; padding: 1rem 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid rgba(255,0,0,0.3);">
+        <div style="max-width: 600px; margin: 0 auto; position: relative;">
+            <input type="text" id="searchInput" placeholder="Buscar produtos..." style="width: 100%; padding: 1rem 3rem 1rem 1rem; background: rgba(255,0,0,0.1); border: 2px solid rgba(255,0,0,0.3); border-radius: 12px; color: #fff; font-size: 1rem;">
+            <button onclick="performSearch()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #ff0000; font-size: 1.2rem; cursor: pointer;">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div class="page active" id="home">
+        <section class="hero">
+            <div class="hero-logo" onclick="goToDiscord()">
+                <div class="hero-logo-icon">
+                    <img src="https://i.imgur.com/IJHvayH.png" alt="BloxShadow">
+                </div>
+                <span class="hero-logo-text">BloxShadow</span>
+            </div>
+            
+            <p class="hero-description">
+                Os melhores executores e scripts para Roblox, sempre buscando qualidade, desempenho e atualização constante para entregar o melhor para vocês.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="https://discord.gg/bdNpEbxQsc" class="hero-btn" target="_blank">
+                    <i class="fab fa-discord"></i> Suporte
+                </a>
+                <a href="https://www.youtube.com/@NightShadowzz" class="hero-btn" target="_blank">
+                    <i class="fab fa-youtube"></i> NightShadow
+                </a>
+            </div>
+        </section>
+
+        <div class="maintenance-banner">
+            <img src="https://i.imgur.com/OOXgh9m.png" alt="EM MANUTENÇÃO" class="maintenance-img">
+        </div>
+
+        <section class="category-section">
+            <div class="category-grid">
+                <div class="category-card" onclick="filterProducts('executor')">
+                    <img src="https://i.imgur.com/hLPXr0B.png" alt="Executor" class="category-icon">
+                    <h3>Executor...</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('script')">
+                    <img src="https://i.imgur.com/KKfuSIK.png" alt="Scripts" class="category-icon">
+                    <h3>Scripts Premium</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Executores -->
+        <section class="section-header">
+            <h2 class="section-title">
+                <i class="fas fa-fire"></i> Executores Premium
+            </h2>
+        </section>
+
+        <section class="products-section">
+            <div class="products-grid">
+                <div class="product-card" data-category="executor">
+                    <div style="position: relative;">
+                        <img src="https://i.imgur.com/nZ3DN3H.png" alt="Cosmic" class="product-image">
+                        <span class="product-badge sold-out">ESGOTADO</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-header">
+                            <i class="fas fa-fire"></i>
+                            <span style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">EXECUTOR PREMIUM</span>
+                        </div>
+                        <h3 class="product-title">COSMIC - EXECUTOR PREMIUM</h3>
+                        <div class="price-container">
+                            <span class="old-price">R$ 104,00</span>
+                            <span class="discount-badge">-49% OFF</span>
+                            <div class="current-price">
+                                <i class="fas fa-bolt price-icon"></i>
+                                R$ 52,40
+                            </div>
+                        </div>
+                        <div class="payment-info">
+                            <i class="fas fa-qrcode"></i>
+                            <span>À vista no PIX</span>
+                        </div>
+                        <button class="details-btn" onclick="addToCart('Cosmic Executor', 52.40)">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="executor">
+                    <div style="position: relative;">
+                        <img src="https://i.imgur.com/5SpjvAs.png" alt="Ronix" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-header">
+                            <i class="fas fa-fire"></i>
+                            <span style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">EXECUTOR PREMIUM</span>
+                        </div>
+                        <h3 class="product-title">RONIX - EXECUTOR PREMIUM</h3>
+                        <div class="price-container">
+                            <div class="current-price">
+                                <i class="fas fa-plus price-icon" style="color: #00ff00;"></i>
+                                R$ 79,99
+                            </div>
+                        </div>
+                        <div class="payment-info">
+                            <i class="fas fa-qrcode"></i>
+                            <span>À vista no PIX</span>
+                        </div>
+                        <button class="details-btn" onclick="addToCart('Ronix Executor', 79.99)">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="executor">
+                    <div style="position: relative;">
+                        <img src="https://i.imgur.com/7bqKBD7.png" alt="Seliware" class="product-image">
+                        <span class="product-badge" style="background: #ff0000;">OFF</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-header">
+                            <i class="fas fa-fire"></i>
+                            <span style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">EXECUTOR PREMIUM</span>
+                        </div>
+                        <h3 class="product-title">SELIWARE - EXECUTOR PREMIUM</h3>
+                        <div class="price-container">
+                            <div class="current-price">
+                                <i class="fas fa-plus price-icon" style="color: #00ff00;"></i>
+                                R$ 21,99
+                            </div>
+                        </div>
+                        <div class="payment-info">
+                            <i class="fas fa-qrcode"></i>
+                            <span>À vista no PIX</span>
+                        </div>
+                        <button class="details-btn" onclick="addToCart('Seliware Executor', 21.99)">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scripts -->
+        <section class="section-header">
+            <h2 class="section-title">
+                <i class="fas fa-fire"></i> Scripts Premium
+            </h2>
+        </section>
+
+        <section class="products-section">
+            <div class="products-grid">
+                <div class="product-card" data-category="script">
+                    <div style="position: relative;">
+                        <img src="https://i.imgur.com/sSU6nvK.png" alt="HoHoHub" class="product-image">
+                        <span class="product-badge sold-out">ESGOTADO</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-header">
+                            <i class="fas fa-fire"></i>
+                            <span style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">SCRIPT PREMIUM</span>
+                        </div>
+                        <h3 class="product-title">HOHOHUB - SCRIPT PREMIUM</h3>
+                        <div class="price-container">
+                            <span class="old-price">R$ 43,00</span>
+                            <span class="discount-badge">-23% OFF</span>
+                            <div class="current-price">
+                                <i class="fas fa-bolt price-icon"></i>
+                                R$ 32,99
+                            </div>
+                        </div>
+                        <div class="payment-info">
+                            <i class="fas fa-qrcode"></i>
+                            <span>À vista no PIX</span>
+                        </div>
+                        <button class="details-btn" onclick="showScript('hohohub')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="script">
+                    <div style="position: relative;">
+                        <img src="https://i.imgur.com/MSVoq0M.png" alt="Banana Cat" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-header">
+                            <i class="fas fa-fire"></i>
+                            <span style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">SCRIPT PREMIUM</span>
+                        </div>
+                        <h3 class="product-title">BANANA CAT HUB - SCRIPT PREMIUM</h3>
+                        <div class="price-container">
+                            <div class="current-price">
+                                <i class="fas fa-plus price-icon" style="color: #00ff00;"></i>
+                                R$ 6,99
+                            </div>
+                        </div>
+                        <div class="payment-info">
+                            <i class="fas fa-qrcode"></i>
+                            <span>À vista no PIX</span>
+                        </div>
+                        <button class="details-btn" onclick="showScript('bananacat')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="script">
+                    <div style="position: relative;">
+                        <img src="https://i.imgur.com/U9xEQJN.png" alt="Ronix Hub" class="product-image">
+                        <span class="product-badge sold-out">ESGOTADO</span>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-header">
+                            <i class="fas fa-fire"></i>
+                            <span style="font-size: 0.8rem; color: rgba(255,255,255,0.7);">SCRIPT PREMIUM</span>
+                        </div>
+                        <h3 class="product-title">RONIX HUB - SCRIPT PREMIUM</h3>
+                        <div class="price-container">
+                            <span class="old-price">R$ 59,90</span>
+                            <span class="discount-badge">-13% OFF</span>
+                            <div class="current-price">
+                                <i class="fas fa-bolt price-icon"></i>
+                                R$ 51,99
+                            </div>
+                        </div>
+                        <div class="payment-info">
+                            <i class="fas fa-qrcode"></i>
+                            <span>À vista no PIX</span>
+                        </div>
+                        <button class="details-btn" onclick="showScript('ronixhub')">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews -->
+        <section class="reviews-section">
+            <img src="https://i.imgur.com/r7jjwOr.png" alt="AVALIAÇÕES" class="reviews-title-img">
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Muito bom"</p>
+                    <p class="review-date">26 Jan 01:10</p>
+                    <div class="review-product">
+                        <img src="https://i.imgur.com/jysTYYG.png" alt="Seliware">
+                        <span>Seliware | Mensal</span>
+                        <span style="color: #00ff00; margin-left: auto;">R$ 54,99</span>
+                        <span style="text-decoration: line-through; color: rgba(255,255,255,0.5); font-size: 0.8rem;">R$ 100,00</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"muito bom, recomendo"</p>
+                    <p class="review-date">23 Jan 2024</p>
+                    <div class="review-product">
+                        <img src="https://i.imgur.com/jysTYYG.png" alt="Seliware">
+                        <span>Seliware | Mensal</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="review-text">"Bom produto"</p>
+                    <p class="review-date">20 Jan 2024</p>
+                    <div class="review-product">
+                        <img src="https://i.imgur.com/TISERWX.png" alt="Cosmic">
+                        <span>Cosmic | Permanente</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-item" onclick="showToast('Envio imediato garantido!')">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Envio imediato</h3>
+                        <p>Receba em poucos segundos.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item" onclick="goToDiscord()">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Suporte eficiente</h3>
+                        <p>Dúvidas? Fale conosco.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item" onclick="showToast('Compra 100% segura!')">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Compra segura</h3>
+                        <p>Dados 100% criptografados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div class="page" id="login">
+        <div class="login-page">
+            <h1 class="login-title">Entrar</h1>
+            <p class="login-subtitle">Faça login com seu endereço de e-mail</p>
+            
+            <div class="social-login">
+                <a href="https://accounts.google.com" class="social-btn" target="_blank">
+                    <img src="https://www.google.com/favicon.ico" alt="Google"> Conectar com Google
+                </a>
+                <a href="https://discord.gg/bdNpEbxQsc" class="social-btn" target="_blank">
+                    <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Discord" style="border-radius: 50%;"> Conectar com Discord
+                </a>
+            </div>
+            
+            <div class="divider">Ou continuar com</div>
+            
+            <form onsubmit="event.preventDefault(); handleLogin()">
+                <div class="input-group">
+                    <label>Endereço de e-mail</label>
+                    <input type="email" id="loginEmail" placeholder="exemplo@gmail.com" required>
+                </div>
+                <button type="submit" class="submit-btn">Entrar</button>
+            </form>
+        </div>
+
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Envio imediato</h3>
+                        <p>Receba em poucos segundos.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Suporte eficiente</h3>
+                        <p>Dúvidas? Fale conosco.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Compra segura</h3>
+                        <p>Dados 100% criptografados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TERMS PAGE -->
+    <div class="page" id="terms">
+        <div class="terms-page">
+            <h1 class="terms-title">TERMOS DE VENDAS</h1>
+            
+            <div class="terms-section">
+                <h2><i class="fas fa-truck"></i> ENTREGA</h2>
+                <p>A entrega dos produtos é realizada <span class="terms-highlight">somente após a confirmação do pagamento</span>. Nossos produtos possuem dois tipos de entrega:</p>
+                <ul>
+                    <li><span class="terms-highlight">Entrega automática:</span> realizada imediatamente após a confirmação do pagamento.</li>
+                    <li><span class="terms-highlight">Entrega semiautomática:</span> pode levar <span class="terms-highlight">até 48 horas</span> para ser enviada após a confirmação do pagamento.</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-dollar-sign"></i> FORMAS DE PAGAMENTO</h2>
+                <ul>
+                    <li>Atualmente aceitamos apenas: <span class="terms-highlight">PIX e Litecoin (LTC)</span>.</li>
+                    <li>Caso ocorra qualquer erro durante o envio do pagamento, como envio para endereço incorreto, valor errado ou uso de rede incorreta, <span class="terms-highlight">não nos responsabilizamos pela perda do valor</span>.</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-key"></i> PROBLEMAS COM KEYS</h2>
+                <p>Caso ocorra algum problema com a key, o cliente deverá apresentar <span class="terms-highlight">prova clara do erro</span>. Se o problema for comprovado e estiver relacionado ao produto, poderá ocorrer:</p>
+                <ul>
+                    <li>Substituição da key</li>
+                    <li>Correção do acesso ao produto</li>
+                    <li>A substituição será realizada apenas se for comprovado que o problema <span class="terms-highlight">não foi causado por erro do cliente</span>.</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-shield-alt"></i> GARANTIA E RESPONSABILIDADE</h2>
+                <p>Ao comprar qualquer produto em nossa loja, o cliente entende que scripts e executores podem sofrer atualizações, mudanças ou instabilidades devido a fatores externos. A loja não se responsabiliza por:</p>
+                <ul>
+                    <li>Banimentos em jogos</li>
+                    <li>Problemas causados por uso incorreto do produto</li>
+                    <li>Períodos em que o script ou executor esteja temporariamente desatualizado</li>
+                    <li>Scripts ou executores que venham a ser descontinuados pelos desenvolvedores</li>
+                    <li>Períodos em que o produto fique temporariamente indisponível devido a atualizações</li>
+                    <li><span class="terms-highlight">Não nos responsabilizamos pelo desenvolvimento dos scripts ou executores.</span></li>
+                    <li><span class="terms-highlight">Não oferecemos reembolso caso um script ou executor fique desatualizado ou seja descontinuado.</span></li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-undo"></i> REEMBOLSOS</h2>
+                <ul>
+                    <li>Devido à natureza dos nossos produtos serem <span class="terms-highlight">digitais e de resgate único</span>, não oferecemos reembolso após a entrega da key.</li>
+                    <li><span class="terms-highlight">Não realizamos reembolsos após a entrega</span>, pois as keys podem ser visualizadas.</li>
+                    <li><span class="terms-highlight">Não nos responsabilizamos por erros cometidos pelo cliente</span> durante o resgate da key.</li>
+                    <li>Caso o cliente cometa erro ao resgatar ou ativar a key, <span class="terms-highlight">não haverá reembolso ou substituição</span>.</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-headset"></i> SUPORTE E COMPROMISSO</h2>
+                <ul>
+                    <li>Nosso suporte está disponível para: Dúvidas, problemas básicos de ativação e orientações gerais.</li>
+                    <li>O suporte <span class="terms-highlight">não inclui ensino completo de utilização de exploits</span>, mas temos vários tutoriais.</li>
+                </ul>
+            </div>
+
+            <div class="terms-section">
+                <h2><i class="fas fa-file-contract"></i> ALTERAÇÕES NOS TERMOS</h2>
+                <p>A <span class="terms-highlight">BloxShadow</span> reserva-se o direito de alterar estes termos a qualquer momento, sem aviso prévio. Ao realizar uma compra, o cliente <span class="terms-highlight">declara que leu e concorda</span> com todos os termos.</p>
+            </div>
+
+            <div class="terms-buttons">
+                <a href="https://discord.gg/bdNpEbxQsc" class="terms-btn" target="_blank">
+                    <i class="fab fa-discord"></i> Suporte Discord
+                </a>
+                <a href="#" class="terms-btn" onclick="navigateTo('home')">
+                    <i class="fas fa-shopping-cart"></i> Ver Produtos
+                </a>
+            </div>
+        </div>
+
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Envio imediato</h3>
+                        <p>Receba em poucos segundos.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Suporte eficiente</h3>
+                        <p>Dúvidas? Fale conosco.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Compra segura</h3>
+                        <p>Dados 100% criptografados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- COOKIES PAGE -->
+    <div class="page" id="cookies">
+        <div class="cookies-page">
+            <h1 class="cookies-title">Política de Cookies</h1>
+            
+            <div class="cookies-content">
+                <p>Olá! Que bom contar com seu interesse! Antes de usar nossos serviços, tire um tempo para ler nossa Política de Cookies e conhecer as regras que regem nossa relação com você. A presente Política descreve as práticas adotadas pela <strong>BloxShadow</strong> em relação ao uso de cookies.</p>
+                
+                <p>Abaixo esclareceremos alguns pontos que julgamos importantes.</p>
+
+                <h2>1 - DEFINIÇÕES</h2>
+                <p>No presente instrumento, entendemos as expressões abaixo de acordo com as seguintes definições:</p>
+                
+                <p><strong>SITE:</strong> sistema web disponível em <span style="color: #ff0000;">https://bloxshadow.com/</span>, oferecido por <strong>BloxShadow</strong>, onde todos os <strong>USUÁRIOS</strong> podem visualizar e utilizar os serviços oferecidos por <strong>BloxShadow</strong>.</p>
+                
+                <p><strong>USUÁRIO:</strong> pessoa física ou jurídica que acesse o site da <strong>BloxShadow</strong> e/ou utilize a <strong>PLATAFORMA</strong>.</p>
+                
+                <p><strong>TRATAMENTO DE DADOS:</strong> Nos termos do artigo 5, inciso X, da Lei 13.709 de 2018, toda operação realizada pela <strong>BloxShadow</strong> com dados pessoais do <strong>USUÁRIO</strong>, como as que se referem a coleta, produção, recepção, classificação, utilização, acesso, reprodução, transmissão, distribuição, processamento, arquivamento, armazenamento, eliminação, avaliação ou controle da informação, modificação, comunicação, transferência, difusão ou extração.</p>
+                
+                <p><strong>COOKIES:</strong> Cookies são pequenas unidades de informações que são enviadas para o navegador utilizado pelo <strong>USUÁRIO</strong> a partir de um servidor e depois armazenadas no disco rígido do computador ou do dispositivo móvel utilizado. Cookies são dados em formato de pequenos arquivos de texto armazenados em seu navegador ou dispositivo, que tem como função "relembrar" as suas preferências ao longo do tempo.</p>
+                
+                <p><strong>PLATAFORMA:</strong> sistema acessado via web, oferecido pela <strong>BloxShadow</strong> e de propriedade, operação e responsabilidade da <strong>BloxShadow</strong>, onde todos os usuários podem visualizar e utilizar os serviços oferecidos pela <strong>BloxShadow</strong>.</p>
+
+                <h2>2 - POR QUE NÓS COLETAMOS DADOS MEDIANTE COOKIES?</h2>
+                <p>Alguns Dados Pessoais são voluntariamente oferecidos pelo <strong>USUÁRIO</strong> (como, por exemplo, dados de contato, dados cadastrais, etc.). No entanto, quando o <strong>USUÁRIO</strong> acessa o <strong>SITE</strong> ou <strong>PLATAFORMA</strong>, outros Dados Pessoais podem ser coletados pela <strong>BloxShadow</strong> de forma automática, por meio de <strong>cookies</strong> e outras tecnologias de monitoramento assemelhadas ("Cookies").</p>
+                
+                <p>Cookies são pequenos arquivos que o <strong>SITE</strong> envia para o seu navegador e são armazenados no seu dispositivo, permitindo a coleta de informações a seu respeito de maneira automática, como, por exemplo, seu idioma, sua recorrência de acesso ao <strong>SITE</strong>, etc.</p>
+
+                <h2>Quais os tipos de cookies que utilizamos?</h2>
+                <p>A <strong>BloxShadow</strong> utiliza tanto cookies primários quanto cookies de terceiros.</p>
+                
+                <p><strong>Cookies primários</strong> são cookies emitidos pelo domínio do <strong>SITE</strong> e geralmente são utilizados para identificar preferências do <strong>USUÁRIO</strong> para facilitar funcionalidades básicas do <strong>SITE</strong>.</p>
+                
+                <p><strong>Cookies de terceiros</strong> pertencem e são administrados por outras empresas, tais com parceiros de negócios da <strong>BloxShadow</strong> ou provedores de serviços. Estes cookies podem ser necessários para produzir certos formulários, como, por exemplo, permitir a propaganda fora do <strong>SITE</strong>.</p>
+
+                <h2>3 - Como o USUÁRIO pode rejeitar ou apagar cookies?</h2>
+                <p>A maioria dos navegadores da Internet aceitam cookies, entretanto, os usuários podem configurar seus navegadores para recusar certos tipos de cookies ou cookies específicos. Além disso, os usuários podem apagar os cookies a qualquer momento.</p>
+                
+                <p>Depois de autorizar o uso de cookies, o <strong>USUÁRIO</strong> pode sempre desativar parte ou a totalidade dos nossos cookies.</p>
+                
+                <p>Todos os browsers permitem ao utilizador aceitar, recusar ou apagar cookies, nomeadamente através da seleção das definições apropriadas no respetivo navegador. Pode configurar os cookies no menu (opções) ou (preferências) do seu browser.</p>
+                
+                <p>Vale destacar que, ao desativar cookies, pode impedir que alguns serviços do <strong>SITE</strong> funcionem corretamente, afetando, parcial ou totalmente, a navegação no <strong>SITE</strong>.</p>
+                
+                <p>Por fim, ao utilizar o <strong>SITE</strong> sem apagar ou rejeitar alguns ou todos os cookies, o <strong>USUÁRIO</strong> concorda que a <strong>BloxShadow</strong> poderá realizar o <strong>TRATAMENTO DE DADOS</strong> e posicionar aqueles cookies que não apagados ou rejeitados nos seus respectivos dispositivos.</p>
+
+                <h2>4 - ALTERAÇÕES NA POLÍTICA DE COOKIES</h2>
+                <p>A <strong>BloxShadow</strong> poderá alterar este instrumento a qualquer momento, bastando, para tanto, publicarmos uma versão revisada em nosso site. Por este motivo, recomendamos veementemente que sempre visite esta seção de nosso <strong>SITE</strong>, lendo-a, periodicamente. Mas, para contribuir com o bom relacionamento, também enviaremos um e-mail informando acerca dessas mudanças.</p>
+            </div>
+        </div>
+
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Envio imediato</h3>
+                        <p>Receba em poucos segundos.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Suporte eficiente</h3>
+                        <p>Dúvidas? Fale conosco.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Compra segura</h3>
+                        <p>Dados 100% criptografados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CART PAGE -->
+    <div class="page" id="cart">
+        <div class="cart-page">
+            <h1 class="cart-title">Carrinhos de compras</h1>
+            <p class="cart-subtitle">Nesta página, você encontra os produtos adicionados ao seu carrinho.</p>
+            
+            <div class="cart-empty" id="cartEmpty">
+                <i class="fas fa-shopping-bag cart-icon"></i>
+                <p class="cart-empty-text">Monte um carrinho de compras!</p>
+                <button class="discover-btn" onclick="navigateTo('home')">Descobrir produtos</button>
+            </div>
+
+            <div class="cart-items" id="cartItems" style="display: none;">
+                <!-- Items will be added here dynamically -->
+            </div>
+
+            <div class="cart-summary">
+                <h3>Resumo da compra</h3>
+                <p>Aqui, você encontrará os valores da sua compra assim que adicionar produtos.</p>
+                <div id="cartTotal" style="margin-top: 1rem; font-size: 1.5rem; color: #ff0000; font-weight: 700;">
+                    Total: R$ 0,00
+                </div>
+                <button class="details-btn" style="margin-top: 1rem;" onclick="checkout()">
+                    <i class="fas fa-credit-card"></i> Finalizar Compra
+                </button>
+            </div>
+        </div>
+
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Envio imediato</h3>
+                        <p>Receba em poucos segundos.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Suporte eficiente</h3>
+                        <p>Dúvidas? Fale conosco.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Compra segura</h3>
+                        <p>Dados 100% criptografados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="footer-logo-icon">
+                    <img src="https://i.imgur.com/IJHvayH.png" alt="BloxShadow">
+                </div>
+                <span class="footer-logo-text">BloxShadow</span>
+            </div>
+            
+            <p class="footer-tagline">Melhores preços do mercado.</p>
+            
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h4>Políticas</h4>
+                    <ul>
+                        <li><a onclick="navigateTo('terms')"><i class="fas fa-file-contract"></i> Termos de Serviço</a></li>
+                        <li><a onclick="navigateTo('cookies')"><i class="fas fa-cookie"></i> Política de Cookies</a></li>
+                        <li><a href="#"><i class="fas fa-undo"></i> Política de Reembolso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://discord.gg/bdNpEbxQsc" class="social-btn" target="_blank">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@NightShadowzz" class="social-btn" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-btn" onclick="showToast('Instagram em breve')">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 BloxShadow. Todos os direitos reservados.</p>
+                <p>Powered by <span class="powered-by">BlowShadow</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Menu -->
+    <div class="floating-menu">
+        <button class="floating-btn" onclick="toggleEditMode()" title="Editar">
+            <i class="fas fa-pen"></i>
+        </button>
+        <button class="floating-btn" onclick="sharePage()" title="Compartilhar">
+            <i class="fas fa-share-alt"></i>
+        </button>
+        <button class="floating-btn" onclick="generateQR()" title="QR Code">
+            <i class="fas fa-qrcode"></i>
+        </button>
+        <button class="floating-btn" onclick="clearCart()" title="Limpar Carrinho">
+            <i class="fas fa-trash"></i>
+        </button>
+    </div>
+
+    <!-- QR Modal -->
+    <div class="modal" id="qrModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 style="font-family: 'Orbitron', sans-serif; color: #ff0000; margin-bottom: 1rem; text-align: center;">
+                <i class="fas fa-qrcode"></i> QR Code
+            </h3>
+            <div style="background: #fff; padding: 2rem; border-radius: 10px; display: flex; justify-content: center; align-items: center;">
+                <div style="width: 200px; height: 200px; background: linear-gradient(45deg, #000 25%, transparent 25%), linear-gradient(-45deg, #000 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #000 75%), linear-gradient(-45deg, transparent 75%, #000 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;"></div>
+            </div>
+            <p style="text-align: center; margin-top: 1rem; color: rgba(255,255,255,0.7);">Escaneie para acessar a loja</p>
+        </div>
+    </div>
+
+    <!-- Script Modal -->
+    <div class="modal" id="scriptModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 style="font-family: 'Orbitron', sans-serif; color: #ff0000; margin-bottom: 1rem;">
+                <i class="fas fa-code"></i> Script
+            </h3>
+            <div style="background: rgba(0,0,0,0.8); border: 1px solid rgba(255,0,0,0.3); border-radius: 10px; padding: 1rem; margin: 1rem 0; font-family: monospace; color: #0f0; font-size: 0.85rem; word-break: break-all;" id="scriptCode">
+                -- Script será exibido aqui
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+                <button class="details-btn" style="flex: 1;" onclick="copyScript()">
+                    <i class="fas fa-copy"></i> Copiar
+                </button>
+                <button class="details-btn" style="flex: 1; background: linear-gradient(135deg, #333, #666);" onclick="downloadScript()">
+                    <i class="fas fa-download"></i> Download
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i> <span id="toastMessage">Mensagem</span>
+    </div>
+
+    <script>
+        // Page history for back button
+        let pageHistory = ['home'];
+        let currentPage = 'home';
+
+        // Create particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (8 + Math.random() * 8) + 's';
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Hide loading screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Navigation
+        function navigateTo(pageId) {
+            if (pageId !== currentPage) {
+                pageHistory.push(currentPage);
+            }
+            
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            currentPage = pageId;
+            window.scrollTo(0, 0);
+            
+            // Update back button visibility
+            updateBackButton();
+        }
+
+        function goBack() {
+            if (pageHistory.length > 0) {
+                const previousPage = pageHistory.pop();
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(previousPage).classList.add('active');
+                currentPage = previousPage;
+                window.scrollTo(0, 0);
+            }
+            updateBackButton();
+        }
+
+        function updateBackButton() {
+            const backBtn = document.querySelector('.back-btn');
+            if (currentPage === 'home') {
+                backBtn.style.opacity = '0.5';
+                backBtn.style.pointerEvents = 'none';
+            } else {
+                backBtn.style.opacity = '1';
+                backBtn.style.pointerEvents = 'auto';
+            }
+        }
+
+        // Cart functionality
+        let cart = [];
+        
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+            updateCartBadge();
+            showToast(`${name} adicionado ao carrinho!`);
+            createConfetti();
+        }
+
+        function updateCart() {
+            const cartEmpty = document.getElementById('cartEmpty');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartItems.style.display = 'none';
+                cartTotal.textContent = 'Total: R$ 0,00';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartItems.style.display = 'block';
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div style="background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.3); border-radius: 10px; padding: 1rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div style="font-weight: 700;">${item.name}</div>
+                            <div style="color: #00ff00;">R$ ${item.price.toFixed(2)}</div>
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="background: #ff0000; border: none; color: #fff; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+                
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+                cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+            }
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cartBadge');
+            if (cart.length > 0) {
+                badge.textContent = cart.length;
+                badge.style.display = 'block';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+            updateCartBadge();
+            showToast('Item removido do carrinho');
+        }
+
+        function clearCart() {
+            if (cart.length > 0) {
+                cart = [];
+                updateCart();
+                updateCartBadge();
+                showToast('Carrinho limpo');
+            } else {
+                showToast('Carrinho já está vazio');
+            }
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showToast('Adicione itens ao carrinho primeiro!');
+            } else {
+                showToast('Redirecionando para pagamento...');
+                setTimeout(() => {
+                    window.open('https://discord.gg/bdNpEbxQsc', '_blank');
+                }, 1500);
+            }
+        }
+
+        // Scripts database
+        const scripts = {
+            hohohub: `loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()`,
+            bananacat: `loadstring(game:HttpGet("https://raw.githubusercontent.com/bananacat/loader/main/bananacat.lua"))()`,
+            ronixhub: `loadstring(game:HttpGet("https://raw.githubusercontent.com/ronixhub/loader/main/ronix.lua"))()`
+        };
+
+        let currentScript = '';
+
+        function showScript(scriptName) {
+            const modal = document.getElementById('scriptModal');
+            const code = document.getElementById('scriptCode');
+            currentScript = scripts[scriptName] || '-- Script não disponível';
+            code.textContent = currentScript;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+        }
+
+        function copyScript() {
+            navigator.clipboard.writeText(currentScript).then(() => {
+                showToast('Script copiado com sucesso!');
+            });
+        }
+
+        function downloadScript() {
+            const element = document.createElement('a');
+            const file = new Blob([currentScript], {type: 'text/plain'});
+            element.href = URL.createObjectURL(file);
+            element.download = 'script.lua';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+            showToast('Download iniciado!');
+        }
+
+        function filterProducts(category) {
+            showToast(`Filtrando: ${category.toUpperCase()}`);
+            // Scroll to products
+            document.querySelector('.products-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function goToDiscord() {
+            window.open('https://discord.gg/bdNpEbxQsc', '_blank');
+        }
+
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'BloxShadow',
+                    text: 'Os melhores executores e scripts para Roblox!',
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showToast('Link copiado para a área de transferência!');
+            }
+        }
+
+        function generateQR() {
+            document.getElementById('qrModal').classList.add('active');
+        }
+
+        function toggleSearch() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.style.display = searchBar.style.display === 'none' ? 'block' : 'none';
+            if (searchBar.style.display === 'block') {
+                document.getElementById('searchInput').focus();
+            }
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            if (query) {
+                showToast(`Buscando: ${query}`);
+                // Filter products based on search
+                const cards = document.querySelectorAll('.product-card');
+                cards.forEach(card => {
+                    const title = card.querySelector('.product-title').textContent.toLowerCase();
+                    if (title.includes(query.toLowerCase())) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        function showNotifications() {
+            const badge = document.getElementById('notifBadge');
+            if (badge.textContent > 0) {
+                showToast(`Você tem ${badge.textContent} notificações novas`);
+                badge.style.display = 'none';
+            } else {
+                showToast('Sem notificações novas');
+            }
+        }
+
+        function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            showToast(`Bem-vindo, ${email}!`);
+            setTimeout(() => {
+                navigateTo('home');
+            }, 1000);
+        }
+
+        let editMode = false;
+        function toggleEditMode() {
+            editMode = !editMode;
+            if (editMode) {
+                showToast('Modo edição ativado!');
+                document.body.style.cursor = 'crosshair';
+            } else {
+                showToast('Modo edição desativado!');
+                document.body.style.cursor = 'default';
+            }
+        }
+
+        // Confetti effect
+        function createConfetti() {
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = ['#ff0000', '#ff6600', '#ffff00', '#00ff00', '#00ffff', '#ff00ff'][Math.floor(Math.random() * 6)];
+                confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
+
+        // Toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal();
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.getElementById('searchBar').style.display = 'none';
+            }
+            if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+                e.preventDefault();
+                toggleSearch();
+            }
+            if (e.key === 'b' && e.ctrlKey) {
+                e.preventDefault();
+                goBack();
+            }
+        });
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.product-card, .review-card, .feature-item').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Initialize
+        updateBackButton();
+    </script>
+</body>
+</html>
